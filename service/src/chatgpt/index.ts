@@ -99,14 +99,14 @@ async function chatReplyProcess(options: RequestOptions) {
       else
         options = { ...lastContext }
     }
-
+    // globalThis.console.log('发送消息：' + message)
     const response = await api.sendMessage(message, {
       ...options,
       onProgress: (partialResponse) => {
         process?.(partialResponse)
       },
     })
-
+    // globalThis.console.log('返回消息：' + response.text)
     return sendResponse({ type: 'Success', data: response })
   }
   catch (error: any) {

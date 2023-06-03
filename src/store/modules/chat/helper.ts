@@ -6,7 +6,7 @@ export function defaultState(): Chat.ChatState {
   const uuid = 1002
   return {
     active: uuid,
-    usingContext: true,
+    usingContext: false, // 修改为默认不携带之前的聊天记录，省钱第一
     history: [{ uuid, title: 'New Chat', isEdit: false }],
     chat: [{ uuid, data: [] }],
   }
